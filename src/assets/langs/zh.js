@@ -12,4 +12,7 @@ export default {
         current: "活期宝",
         vip: "高端理财",
     },
+    placeholder: {
+        search: "搜索...",
+    },
 };

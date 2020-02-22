@@ -81,7 +81,7 @@ export default {
             >
                 <v-text-field
                     :append-icon-cb="() => {}"
-                    placeholder="Search..."
+                    :placeholder="$t('placeholder.search')"
                     single-line
                     append-icon="search"
                     color="white"
@@ -91,8 +91,8 @@ export default {
         </v-app-bar>
 
         <v-content>
-            <v-container class="fill-height">
-                <div  class="card-tabs">
+            <v-container class="main-content fill-height">
+                <div class="mx-auto">
                     <nav-tab
                         v-for="item in tabList"
                         :key="item.label"
@@ -114,8 +114,8 @@ export default {
     .font-face {
         font-family: "Noto Sans SC" !important;
     }
-    .card-tabs{
-        margin: 0 auto;
+    .main-content {
+        align-items: normal;
     }
 }
 
