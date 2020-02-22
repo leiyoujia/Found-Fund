@@ -92,54 +92,14 @@ export default {
 
         <v-content>
             <v-container class="fill-height">
-                <div
-                    v-for="item in tabList"
-                    :key="item.label"
-                >
+                <div  class="card-tabs">
                     <nav-tab
+                        v-for="item in tabList"
+                        :key="item.label"
                         :icon="item.icon"
                         :text="item.label"
                     />
                 </div>
-            <!--                <v-row-->
-            <!--                    justify="center"-->
-            <!--                    align="center"-->
-            <!--                >-->
-            <!--                    <v-col class="shrink">-->
-            <!--                        <v-tooltip right>-->
-            <!--                            <template v-slot:activator="{ on }">-->
-            <!--                                <v-btn-->
-            <!--                                    :href="source"-->
-            <!--                                    icon-->
-            <!--                                    large-->
-            <!--                                    target="_blank"-->
-            <!--                                    v-on="on"-->
-            <!--                                >-->
-            <!--                                    <v-icon large>-->
-            <!--                                        mdi-code-tags-->
-            <!--                                    </v-icon>-->
-            <!--                                </v-btn>-->
-            <!--                            </template>-->
-            <!--                            <span>Source</span>-->
-            <!--                        </v-tooltip>-->
-            <!--                        <v-tooltip right>-->
-            <!--                            <template v-slot:activator="{ on }">-->
-            <!--                                <v-btn-->
-            <!--                                    icon-->
-            <!--                                    large-->
-            <!--                                    href="https://codepen.io/johnjleider/pen/aezMOO"-->
-            <!--                                    target="_blank"-->
-            <!--                                    v-on="on"-->
-            <!--                                >-->
-            <!--                                    <v-icon large>-->
-            <!--                                        mdi-codepen-->
-            <!--                                    </v-icon>-->
-            <!--                                </v-btn>-->
-            <!--                            </template>-->
-            <!--                            <span>Codepen</span>-->
-            <!--                        </v-tooltip>-->
-            <!--                    </v-col>-->
-            <!--                </v-row>-->
             </v-container>
         </v-content>
     </v-app>
@@ -153,6 +113,9 @@ export default {
 #found-fund {
     .font-face {
         font-family: "Noto Sans SC" !important;
+    }
+    .card-tabs{
+        margin: 0 auto;
     }
 }
 
