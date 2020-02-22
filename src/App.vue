@@ -9,18 +9,39 @@ export default {
     },
     data: () => ({
         drawer: null,
-        tabList: {
-            price: "chart-bar",
-            estimation: "chart-line",
-            ranking: "format-list-numbered",
-            optional: "clipboard-plus-outline",
-            fundBar: "comment-multiple-outline",
-            account: "account-check-outline",
-            trade: "currency-usd-circle-outline",
-            buy: "cart-plus",
-            current: "home-currency-usd",
-            vip: "credit-card-settings-outline",
-        },
+        tabList: [
+            {
+                label: "price",
+                icon: "chart-bar",
+            }, {
+                label: "estimation",
+                icon: "chart-line",
+            }, {
+                label: "ranking",
+                icon: "format-list-numbered",
+            }, {
+                label: "optional",
+                icon: "clipboard-plus-outline",
+            }, {
+                label: "fundBar",
+                icon: "comment-text-outline",
+            }, {
+                label: "account",
+                icon: "account-check-outline",
+            }, {
+                label: "trade",
+                icon: "currency-cny",
+            }, {
+                label: "buy",
+                icon: "cart-outline",
+            }, {
+                label: "current",
+                icon: "home-currency-usd",
+            }, {
+                label: "vip",
+                icon: "credit-card-settings-outline",
+            },
+        ],
     }),
     created() {
         this.$vuetify.theme.light = true;
@@ -71,10 +92,15 @@ export default {
 
         <v-content>
             <v-container class="fill-height">
-                <nav-tab
-                    icon="chart-bar"
-                    text="labels.price"
-                />
+                <div
+                    v-for="item in tabList"
+                    :key="item.label"
+                >
+                    <nav-tab
+                        :icon="item.icon"
+                        :text="item.label"
+                    />
+                </div>
             <!--                <v-row-->
             <!--                    justify="center"-->
             <!--                    align="center"-->
