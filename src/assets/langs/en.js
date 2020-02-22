@@ -1,3 +1,3 @@
 export default {
-    test: "Test",
+    title: "Found Fund",
 };
