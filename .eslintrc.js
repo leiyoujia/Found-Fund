@@ -13,12 +13,13 @@ module.exports = {
         "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
         indent: ["error", 4],
         quotes: ["error", "double", { avoidEscape: true }],
+        "linebreak-style": "off",
         "max-len": ["error", {
             code: 150,
             ignoreTrailingComments: true,
             ignoreStrings: true,
         }],
-        "vue/html-indent": ["error", 4, {
+        "vue/html-indent": ["warn", 4, {
             attribute: 1,
             baseIndent: 1,
             closeBracket: 0,
