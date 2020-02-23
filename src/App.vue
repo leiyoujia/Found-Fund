@@ -35,11 +35,11 @@ export default {
                 label: "buy",
                 icon: "cart-outline",
             }, {
-                label: "current",
+                label: "currentPo",
                 icon: "home-currency-usd",
             }, {
                 label: "vip",
-                icon: "credit-card-settings-outline",
+                icon: "credit-card-outline",
             },
         ],
     }),
@@ -94,8 +94,8 @@ export default {
             <v-container class="main-content fill-height">
                 <div class="mx-auto">
                     <nav-tab
-                        v-for="item in tabList"
-                        :key="item.label"
+                        v-for="(item, index) in tabList"
+                        :key="index"
                         :icon="item.icon"
                         :text="item.label"
                     />
