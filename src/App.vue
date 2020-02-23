@@ -62,13 +62,13 @@ export default {
         <v-app-bar
             app
             clipped-left
-            color="red"
+            color="amber"
             dense
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-icon class="mx-4">
-                fab fa-youtube
-            </v-icon>
+<!--            <v-icon class="mx-4">-->
+<!--                mdi-chart-timeline-variant-->
+<!--            </v-icon>-->
             <v-toolbar-title class="mr-12 align-center">
                 <span class="title font-face">
                     {{ $t("title") }}
@@ -80,6 +80,7 @@ export default {
                 style="max-width: 650px"
             >
                 <v-text-field
+                    class="font-face"
                     :append-icon-cb="() => {}"
                     :placeholder="$t('placeholder.search')"
                     single-line

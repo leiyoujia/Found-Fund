@@ -20,7 +20,7 @@ export default {
     <div class="card-tab float-left ma-2">
         <v-card hover>
             <v-icon
-                color="red lighten-1"
+                color="orange"
                 size="60"
             >
                 {{ iconName }}
