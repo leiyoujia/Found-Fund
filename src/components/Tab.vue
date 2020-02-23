@@ -17,30 +17,24 @@ export default {
 </script>
 
 <template>
-    <v-card
-        class="tab ma-1"
-        hover
-    >
-        <v-icon
-            color="red lighten-1"
-            size="60"
-        >
-            {{ iconName }}
-        </v-icon>
-        <v-card-text class="font-face text-center pa-0">
+    <div class="card-tab ma-2">
+        <v-card hover>
+            <v-icon
+                color="red lighten-1"
+                size="60"
+            >
+                {{ iconName }}
+            </v-icon>
+        </v-card>
+        <v-sheet class="font-face text-center pa-0">
             {{ displayText }}
-        </v-card-text>
-    </v-card>
+        </v-sheet>
+    </div>
 </template>
 
-<style scoped>
-    .tab{
+<style lang="scss" scoped>
+    .card-tab {
         float: left;
-        margin-right:20px;
+        align-items: center;
     }
-    .text-center{
-        text-align: center;
-    }
-
-
 </style>
