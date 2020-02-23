@@ -2,81 +2,52 @@
 export default {
     name: "NavDrawers",
     data: () => ({
-        items: [
-            { icon: "trending_up", text: "Most Popular" },
-            { icon: "subscriptions", text: "Subscriptions" },
-            { icon: "history", text: "History" },
-            { icon: "featured_play_list", text: "Playlists" },
-            { icon: "watch_later", text: "Watch Later" },
+        categories: [
+            ["optional", "steady", "theme", "research", "compare", "income", "manager", "fundBar"],
+            ["price", "ranking", "rating", "company", "estimation", "investRanking", "dividend", "private"],
+            ["currentPo", "indexPo", "buy", "steady", "ranking", "regularPo", "privatePo", "incomeRanking", "vip"],
+            ["currentPo", "regularPo", "indexPo", "privatePo", "incomeList", "steady", "vip", "insurance"],
+            ["help", "education", "advice", "safe"],
         ],
-        items2: [
-            { picture: 28, text: "Joseph" },
-            { picture: 38, text: "Apple" },
-            { picture: 48, text: "Xbox Ahoy" },
-            { picture: 58, text: "Nokia" },
-            { picture: 78, text: "MKBHD" },
-        ],
+        categoryNames: ["hot", "data", "trade", "buy", "guide"],
+        icons: [],
     }),
 };
 </script>
 
 <template>
-    <v-list dense>
-        <v-list-item
-            v-for="item in items"
-            :key="item.text"
-            link
-        >
-            <v-list-item-action>
-                <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-                <v-list-item-title>
-                    {{ item.text }}
-                </v-list-item-title>
-            </v-list-item-content>
+    <v-list>
+        <v-list-item>
+            <v-list-item-icon>
+                <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-title>Home</v-list-item-title>
         </v-list-item>
-        <v-subheader class="mt-4 grey--text text--darken-1">
-            SUBSCRIPTIONS
-        </v-subheader>
-        <v-list>
+
+        <v-list-group
+            v-for="(category, index) in categories"
+            :key="index"
+            prepend-icon="account_circle"
+            value="true"
+        >
+            <template v-slot:activator>
+                <v-list-item-title class="font-face">
+                    {{ $t(`labels.${categoryNames[index]}`) }}
+                </v-list-item-title>
+            </template>
+
             <v-list-item
-                v-for="item in items2"
-                :key="item.text"
+                v-for="(item, i) in category"
+                :key="i"
                 link
             >
-                <v-list-item-avatar>
-                    <img
-                        :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`"
-                        alt=""
-                    >
-                </v-list-item-avatar>
-                <v-list-item-title v-text="item.text" />
+                <v-list-item-title class="font-face" v-text="$t(`labels.${item}`)" />
+<!--                <v-list-item-icon>-->
+<!--                    <v-icon v-text="item" />-->
+<!--                </v-list-item-icon>-->
             </v-list-item>
-        </v-list>
-        <v-list-item
-            class="mt-4"
-            link
-        >
-            <v-list-item-action>
-                <v-icon color="grey darken-1">
-                    mdi-plus-circle-outline
-                </v-icon>
-            </v-list-item-action>
-            <v-list-item-title class="grey--text text--darken-1">
-                Browse Channels
-            </v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-            <v-list-item-action>
-                <v-icon color="grey darken-1">
-                    mdi-settings
-                </v-icon>
-            </v-list-item-action>
-            <v-list-item-title class="grey--text text--darken-1">
-                Manage Subscriptions
-            </v-list-item-title>
-        </v-list-item>
+        </v-list-group>
     </v-list>
 </template>
 
