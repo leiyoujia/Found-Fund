@@ -83,7 +83,7 @@ export default {
                     :append-icon-cb="() => {}"
                     :placeholder="$t('placeholder.search')"
                     single-line
-                    append-icon="search"
+                    append-icon="mdi-magnify"
                     color="white"
                     hide-details
                 />

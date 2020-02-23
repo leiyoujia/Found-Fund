@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <div class="card-tab ma-2">
+    <div class="card-tab float-left ma-2">
         <v-card hover>
             <v-icon
                 color="red lighten-1"
@@ -34,7 +34,6 @@ export default {
 
 <style lang="scss" scoped>
     .card-tab {
-        float: left;
         align-items: center;
     }
 </style>
