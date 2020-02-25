@@ -92,6 +92,7 @@ export default {
         </v-app-bar>
 
         <v-content>
+            <v-img src="./assets/images/home.jpg" />
             <v-container class="main-content fill-height">
                 <div class="mx-auto">
                     <nav-tab
