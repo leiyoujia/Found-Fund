@@ -1,13 +1,17 @@
 <script>
 import NavDrawers from "./components/NavDrawers.vue";
 import NavTab from "./components/Tab.vue";
+import FundTable from "./components/FundTable.vue";
+import fund from "./services/fund";
 
 export default {
     components: {
         NavDrawers,
         NavTab,
+        FundTable,
     },
     data: () => ({
+        funds: [],
         drawer: null,
         tabList: [
             {
@@ -45,6 +49,15 @@ export default {
     }),
     created() {
         this.$vuetify.theme.light = true;
+        fund.getAll().then((result) => {
+            result.forEach((item, index) => {
+                this.funds[index] = {
+                    index,
+                    fundId: item[0],
+                    shortName: item[2],
+                };
+            });
+        });
     },
 };
 </script>
@@ -66,9 +79,9 @@ export default {
             dense
         >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-<!--            <v-icon class="mx-4">-->
-<!--                mdi-chart-timeline-variant-->
-<!--            </v-icon>-->
+            <!--            <v-icon class="mx-4">-->
+            <!--                mdi-chart-timeline-variant-->
+            <!--            </v-icon>-->
             <v-toolbar-title class="mr-12 align-center">
                 <span class="title font-face">
                     {{ $t("title") }}
@@ -102,6 +115,9 @@ export default {
                         :text="item.label"
                     />
                 </div>
+                <fund-table
+                    :funds="funds"
+                ></fund-table>
             </v-container>
         </v-content>
     </v-app>
