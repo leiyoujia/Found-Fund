@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .category-list {
-    padding-left: 71px;
+    padding-left: 72px;
     min-height: 38px;
 }
 </style>

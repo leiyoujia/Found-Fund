@@ -21,7 +21,7 @@ export default {
         <v-card hover>
             <v-icon
                 color="orange"
-                size="60"
+                size="70"
             >
                 {{ iconName }}
             </v-icon>
