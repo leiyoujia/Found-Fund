@@ -2,7 +2,6 @@
 import NavDrawers from "./components/NavDrawers.vue";
 import NavTab from "./components/Tab.vue";
 import FundTable from "./components/FundTable.vue";
-import fund from "./services/fund";
 
 export default {
     components: {
@@ -14,18 +13,13 @@ export default {
         funds: [],
         drawer: null,
         tabList: [
+            // {
+            //     label: "price",
+            //     icon: "chart-bar",
+            // },
             {
                 label: "price",
-                icon: "chart-bar",
-            }, {
-                label: "estimation",
                 icon: "chart-line",
-            }, {
-                label: "ranking",
-                icon: "format-list-numbered",
-            }, {
-                label: "optional",
-                icon: "clipboard-plus-outline",
             }, {
                 label: "fundBar",
                 icon: "comment-text-outline",
@@ -33,31 +27,29 @@ export default {
                 label: "account",
                 icon: "account-check-outline",
             }, {
-                label: "trade",
-                icon: "currency-cny",
+                label: "ranking",
+                icon: "format-list-numbered",
             }, {
-                label: "buy",
-                icon: "cart-outline",
-            }, {
-                label: "currentPo",
-                icon: "home-currency-usd",
-            }, {
-                label: "vip",
-                icon: "credit-card-outline",
+                label: "optional",
+                icon: "clipboard-plus-outline",
             },
+            // {
+            //     label: "trade",
+            //     icon: "currency-cny",
+            // }, {
+            //     label: "buy",
+            //     icon: "cart-outline",
+            // }, {
+            //     label: "currentPo",
+            //     icon: "home-currency-usd",
+            // }, {
+            //     label: "vip",
+            //     icon: "credit-card-outline",
+            // },
         ],
     }),
     created() {
         this.$vuetify.theme.light = true;
-        fund.getAll().then((result) => {
-            result.forEach((item, index) => {
-                this.funds[index] = {
-                    index,
-                    fundId: item[0],
-                    shortName: item[2],
-                };
-            });
-        });
     },
 };
 </script>
@@ -106,18 +98,16 @@ export default {
 
         <v-content>
             <v-img src="./assets/images/home.jpg" />
+            <div>
+                <nav-tab
+                    v-for="(item, index) in tabList"
+                    :key="index"
+                    :icon="item.icon"
+                    :text="item.label"
+                />
+            </div>
             <v-container class="main-content fill-height">
-                <div class="mx-auto">
-                    <nav-tab
-                        v-for="(item, index) in tabList"
-                        :key="index"
-                        :icon="item.icon"
-                        :text="item.label"
-                    />
-                </div>
-                <fund-table
-                    :funds="funds"
-                ></fund-table>
+                <fund-table />
             </v-container>
         </v-content>
     </v-app>
