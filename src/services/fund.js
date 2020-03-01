@@ -22,14 +22,14 @@ function getAll() {
     });
 }
 
-function getMarketValues() {
-    const requestConfig = getRequestInfo("get_market_value", {}, "/juheApi");
+function getMarketValues(params) {
+    const requestConfig = getRequestInfo("get_market_value", params, "/juheApi");
 
     return axios.request(requestConfig).then((response) => {
         if (response.status !== 200 || response.data.error_code !== 0 || response.data.reason !== "success") {
             throw new Error("Get fund data failed.");
         }
-        return response.data.result;
+        return response.data;
     }).catch((e) => {
         throw e;
     });
