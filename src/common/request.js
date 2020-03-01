@@ -1,4 +1,4 @@
-import { isEmpty } from "lodash";
+import { isEmpty, forIn } from "lodash";
 
 const baseResource = "/fundApi";
 
@@ -18,12 +18,12 @@ const requestSettings = {
 };
 
 function getRequestInfo(requestName, params, baseUrl) {
-    const requestInfo = requestSettings[requestName];
+    const requestInfo = { ...requestSettings[requestName] };
     let { url } = requestInfo;
 
     if (!isEmpty(params)) {
-        Object.keys(params).forEach((key) => {
-            url = url.replace(`[${key}]`, params.key);
+        forIn(params, (value, key) => {
+            url = url.replace(`[${key}]`, value);
         });
     }
 
